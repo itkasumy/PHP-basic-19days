@@ -1,0 +1,40 @@
+<?php
+header("Content-type:text/html;charset=utf-8");
+
+    echo "<pre>";
+    print_r($_REQUEST);
+    echo "<pre>";
+
+    echo "<pre>";
+    print_r($_GET);
+    echo "<pre>";
+
+    echo "<pre>";
+    print_r($_POST);
+    echo "<pre>";
+    
+    echo "<hr>";
+
+    if(isset($_REQUEST["ac"])) {
+        $uName = $_REQUEST["uName"];
+        $uPwd = $_REQUEST["uPwd"];
+        echo "用户名：$uName <br>密码：$uPwd";
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Request</title>
+</head>
+<body>
+    <form action="?ac=login" method="post">
+        用户名: <input type="text" name="uName" value=""><br>
+        密 码: <input type="password" name="uPwd" value=""><br>
+        <input type="submit" value="登陆">
+    </form>
+</body>
+</html>
