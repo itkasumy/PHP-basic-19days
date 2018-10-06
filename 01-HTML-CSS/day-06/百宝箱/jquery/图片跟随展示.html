@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>图片跟随展示</title>
+	<meta name="keywords" content="关键字列表" />
+	<meta name="description" content="网页描述" />
+	<link rel="stylesheet" type="text/css" href="" />
+	<style type="text/css">
+		*{margin:0;padding:0;list-style:none;border:0;}
+		div{ width:400px;height:300px;border:1px solid #ccc;position:absolute;left:0;top:0;}
+		ul{margin:150px;}
+		ul li{border:1px solid #ccc; margin:10px; float:left;}
+		ul li img{display:block;}
+	</style>
+	<script type="text/javascript" src="jquery-2/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('ul li').mouseover(function(){//当鼠标放上时
+				//创建一个节点
+				var huode=$(this).children().attr('href');//attr设置或返回被选元素的属性值
+				var tag=$('<div><img src="'+huode+'" width="400" height="300"</div>');
+				$('body').append(tag);//append在被选元素的结尾插入指定的内容
+				$('div').hide().show(500);//div是先隐藏再显示
+			}).mousemove(function(e){//当鼠标移动时
+				var mx=e.pageX;
+				var my=e.pageY;
+				$('div').css('left',mx+10).css('top',my+20);
+			}).mouseout(function(){
+				$('div').remove();//当鼠标离开的时候清楚事件
+			})
+		})
+	</script>
+</head>
+<body>
+<ul>
+	<li><a href="images/5596e5143f573.gif" ><img src="images/001.jpg" width="100" height="75"></a></li>
+	<li><a href="images/1.jpg"><img src="images/kt-1.jpg" width="100" height="75"></a></li>
+	<li><a href="images/2.jpg"><img src="images/kt-2.jpg" width="100" height="75"></a></li>
+	<li><a href="images/3.jpg"><img src="images/yang.jpg" width="100" height="75"></a></li>
+</ul>
+</body>
+</html>

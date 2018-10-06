@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	*{padding:0;margin:0; list-style:none; border:0;}
+	body{background:#000;}
+	.all{width:570px; height:380px; border:1px solid #ccc; margin:100px auto; padding:10px 0 0 10px;}
+	.all li{ width:180px; height:180px;margin:0 10px 10px 0; float:left; cursor:pointer;}
+</style>
+<script type="text/javascript" src="jquery-2/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){//去做突出显示
+			$('.all li').hover(function(){
+				//点击图片时，兄弟图片淡出
+				$(this).siblings().stop().fadeTo(500,0.3);
+				},function(){
+					//离开的时候显示所有的li
+					$('.all li').stop().fadeTo(500,1);
+					}).click(function(){
+						//显示跳动
+						$(this).children().stop().slideUp().slideDown();
+						})
+		})
+</script>
+</head>
+
+<body>
+<div class="all">
+	<ul>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+       <li><img src="images/kt-1.jpg" width="180" height="180"/></li>
+    </ul>
+</div>
+</body>
+</html>
